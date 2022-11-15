@@ -1,29 +1,22 @@
 #include "main.h"
-#include <stdio.h>
 /**
- * _strspn - length of prefix substring
- * @s: string to go through
- * @accept: accepted bytes
- * Return: returns usigned values
+ * _strchr - locates character in string
+ * @s: string to locate char
+ * @c: character to find
+ * Return: character value
  */
-unsigned int _strspn(char *s, char *accept)
+char *_strchr(char *s, char c)
 {
 	int i;
-	int j;
-	unsigned int result = 0;
 
 	for (i = 0; s[i] != '\0'; i++)
 	{
-		for (j = 0; s[j] != '\0'; j++)
+		if (s[i] == c)
 		{
-			if (s[i] == accept[j])
-			{
-				result++;
-				break;
-			}
+			return (s + i);
 		}
-		if (s[j] == '\0')
-			return (result);
 	}
-	return (result);
+	if (s[i] == c)
+		return (s + i);
+	return (0);
 }
